@@ -9,7 +9,6 @@ class HomePageState extends ChangeNotifier {
   String message;
   Color messageColor;
   bool buttonIsEnabled;
-  int expectedNumber;
 
   HomePageState(
       [this.remainingChances = 10,
@@ -17,10 +16,7 @@ class HomePageState extends ChangeNotifier {
       this.showMessage = false,
       this.message = "",
       this.messageColor = Colors.red,
-      this.buttonIsEnabled = true,
-      this.expectedNumber = 0]) {
-    expectedNumber = Random().nextInt(100) + 1;
-  }
+      this.buttonIsEnabled = true]);
 
   HomePageState copyWith({
     int? remainingChances,
@@ -37,8 +33,7 @@ class HomePageState extends ChangeNotifier {
       showMessage = showMessage ?? this.showMessage,
       message = message ?? this.message,
       messageColor = messageColor ?? this.messageColor,
-      buttonIsEnabled = buttonIsEnabled ?? this.buttonIsEnabled,
-      expectedNumber = expectedNumber ?? this.expectedNumber,
+      buttonIsEnabled = buttonIsEnabled ?? this.buttonIsEnabled
     );
   }
 }

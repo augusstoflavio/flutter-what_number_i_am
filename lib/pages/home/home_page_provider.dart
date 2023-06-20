@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:what_number_am_i/pages/home/home_page_state.dart';
 
 class HomePageProvider extends ChangeNotifier {
   var homePageState = HomePageState();
+  var expectedNumber = Random().nextInt(100) + 1;
 
   void changeCurrentText(String text) {
     homePageState = homePageState.copyWith(currentText: text);
@@ -17,9 +20,9 @@ class HomePageProvider extends ChangeNotifier {
       buttonIsEnabled: remainingChances > 0,
       messageColor: getMessageColor(
         currentNumber,
-        homePageState.expectedNumber,
+        expectedNumber,
       ),
-      message: getMessage(currentNumber, homePageState.expectedNumber),
+      message: getMessage(currentNumber, expectedNumber),
       showMessage: true,
     );
     notifyListeners();
